@@ -1,18 +1,44 @@
 using UnityEngine;
 
-public class Archetype
+public class Archetype : MonoBehaviour
 {
-    public string name;
-    public Ability uniqueAbility;
-
-    public Archetype(string name, Ability uniqueAbility)
+    public enum ArchetypeType
     {
-        this.name = name;
-        this.uniqueAbility = uniqueAbility;
+        GuardianOfTradition,
+        SeekerOfKnowledge,
+        Explorer,
+        ConjurorOfPotential,
+        MasterOfConflict
     }
 
-    public Ability GetUniqueAbility()
+    public ArchetypeType archetype;
+    public string uniqueAbility;
+
+    void Start()
     {
-        return uniqueAbility;
+        switch (archetype)
+        {
+            case ArchetypeType.GuardianOfTradition:
+                uniqueAbility = "Defesa Ancestral";
+                break;
+            case ArchetypeType.SeekerOfKnowledge:
+                uniqueAbility = "Percepção Aumentada";
+                break;
+            case ArchetypeType.Explorer:
+                uniqueAbility = "Intuição de Sobrevivência";
+                break;
+            case ArchetypeType.ConjurorOfPotential:
+                uniqueAbility = "Manipulação de Mana";
+                break;
+            case ArchetypeType.MasterOfConflict:
+                uniqueAbility = "Força Bruta";
+                break;
+        }
+    }
+
+    public void UnlockAbility()
+    {
+        Debug.Log("Habilidade única desbloqueada: " + uniqueAbility);
+        // Adicionar lógica para aplicar a habilidade única ao personagem
     }
 }
