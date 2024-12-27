@@ -1,4 +1,6 @@
 using UnityEngine;
+// Add the necessary using directives
+using VeilOfTheAncients.Characters;
 
 public class PlayerInteractionWithEridian : MonoBehaviour
 {
@@ -153,6 +155,18 @@ public class PlayerInteractionWithEridian : MonoBehaviour
             case "Thalass":
                 InteractWithThalass(mentor);
                 break;
+            case "Althea":
+                InteractWithAlthea(mentor);
+                break;
+            case "Thalon":
+                InteractWithThalon(mentor);
+                break;
+            case "Kyra":
+                InteractWithKyra(mentor);
+                break;
+            case "Zorath":
+                InteractWithZorath(mentor);
+                break;
             default:
                 mentor.ProvideGuidance();
                 break;
@@ -189,28 +203,144 @@ public class PlayerInteractionWithEridian : MonoBehaviour
         mentor.TeachAncientMagic();
     }
 
+    void InteractWithAlthea(Mentor mentor)
+    {
+        // Lógica específica para interagir com Althea
+        mentor.TeachManaControl();
+    }
+
+    void InteractWithThalon(Mentor mentor)
+    {
+        // Lógica específica para interagir com Thalon
+        mentor.TeachCombatEndurance();
+    }
+
+    void InteractWithKyra(Mentor mentor)
+    {
+        // Lógica específica para interagir com Kyra
+        mentor.TeachEspionage();
+    }
+
+    void InteractWithZorath(Mentor mentor)
+    {
+        // Lógica específica para interagir com Zorath
+        mentor.TeachTechMagicFusion();
+    }
+
     void InteractWithAlly(Ally ally)
     {
         // Lógica específica para interagir com um aliado
-        ally.OfferSupport();
+        switch (ally.Name)
+        {
+            case "Thornis":
+                InteractWithThornis(ally);
+                break;
+            case "Ava":
+                InteractWithAva(ally);
+                break;
+            default:
+                ally.OfferSupport();
+                break;
+        }
+    }
+
+    void InteractWithThornis(Ally ally)
+    {
+        // Lógica específica para interagir com Thornis
+        ally.ProvideCombatTraining();
+    }
+
+    void InteractWithAva(Ally ally)
+    {
+        // Lógica específica para interagir com Ava
+        ally.ProvideKnowledge();
     }
 
     void InteractWithLeader(Leader leader)
     {
         // Lógica específica para interagir com um líder
-        leader.MakeDecision();
+        switch (leader.Name)
+        {
+            case "Rei Alaric":
+                InteractWithReiAlaric(leader);
+                break;
+            case "Lady Seraphina":
+                InteractWithLadySeraphina(leader);
+                break;
+            default:
+                leader.MakeDecision();
+                break;
+        }
+    }
+
+    void InteractWithReiAlaric(Leader leader)
+    {
+        // Lógica específica para interagir com Rei Alaric
+        leader.EnforceLaw();
+    }
+
+    void InteractWithLadySeraphina(Leader leader)
+    {
+        // Lógica específica para interagir com Lady Seraphina
+        leader.AdvanceTechnology();
     }
 
     void InteractWithVendor(Vendor vendor)
     {
         // Lógica específica para interagir com um vendedor
-        vendor.SellItems();
+        switch (vendor.Name)
+        {
+            case "Jarek":
+                InteractWithJarek(vendor);
+                break;
+            case "Lira":
+                InteractWithLira(vendor);
+                break;
+            default:
+                vendor.SellItems();
+                break;
+        }
+    }
+
+    void InteractWithJarek(Vendor vendor)
+    {
+        // Lógica específica para interagir com Jarek
+        vendor.SellRelics();
+    }
+
+    void InteractWithLira(Vendor vendor)
+    {
+        // Lógica específica para interagir com Lira
+        vendor.EnchantItems();
     }
 
     void InteractWithComplexCharacter(ComplexCharacter character)
     {
         // Lógica específica para interagir com um personagem complexo
-        character.RevealSecret();
+        switch (character.Name)
+        {
+            case "Lorian":
+                InteractWithLorian(character);
+                break;
+            case "Kaela":
+                InteractWithKaela(character);
+                break;
+            default:
+                character.RevealSecret();
+                break;
+        }
+    }
+
+    void InteractWithLorian(ComplexCharacter character)
+    {
+        // Lógica específica para interagir com Lorian
+        character.ProvideFutureInsight();
+    }
+
+    void InteractWithKaela(ComplexCharacter character)
+    {
+        // Lógica específica para interagir com Kaela
+        character.LeadRebellion();
     }
 
     public void DiscoverTrueNature()
